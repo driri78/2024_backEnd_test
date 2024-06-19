@@ -22,6 +22,19 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get("/", (req, res) => {
+  const str = `
+  <h1>root</h1>
+  GET: localhost:4500/makeup <br/>
+  GET: localhost:4500/makeup/:id <br/>
+  GET: localhost:4500/board <br/>
+  POST: localhost:4500/board <br/>
+  DELETE: localhost:4500/board/:id <br/>
+  PUT: localhost:4500/board/:id <br/>
+  `;
+  res.send(str);
+});
+
 app.use("/users", require("../routes/users"));
 app.use("/board", require("../routes/board"));
 app.use("/makeup", require("../routes/makeup"));
