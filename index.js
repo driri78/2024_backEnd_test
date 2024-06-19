@@ -3,7 +3,7 @@ const app = express();
 const path = require("path");
 const fs = require("fs").promises;
 const fsExit = require("fs");
-const logEvents = require("../middleware/logEvents");
+const logEvents = require("./middleware/logEvents");
 const cors = require("cors");
 const dotenv = require("dotenv");
 dotenv.config();
@@ -35,9 +35,9 @@ app.get("/", (req, res) => {
   res.send(str);
 });
 
-app.use("/users", require("../routes/users"));
-app.use("/board", require("../routes/board"));
-app.use("/makeup", require("../routes/makeup"));
+app.use("/users", require("./routes/users"));
+app.use("/board", require("./routes/board"));
+app.use("/makeup", require("./routes/makeup"));
 
 // 필요한 데이터로 변경하여 사용
 // app.get("/user", (req, res) => {
